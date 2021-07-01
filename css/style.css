@@ -3,36 +3,42 @@ body {
     background-color: #edebe2;
     padding: 0;
     margin: 0;
+    background-image: url("../profilepicture.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
 }
 
 
 h1 {
     color: #85D2D0;
     font-family: 'Fuggles', cursive;
-    font-size: 60px;
-    font-size: 12vw;
-    margin: 10% auto 0 auto;
+    font-size: 100px;
+    font-size: 20vw;
 }
+
 
 h2 {
     color: #B9B7BD;
     font-family: 'Kirang Haerang', cursive;
-    font-size: 40px;
-    font-size: 6vw;
-
+    font-size: 60px;
+    font-size: 8vw;
 }
 
-#nameDiv {
+#startDiv {
     margin: auto;
-    text-align: center;
-}
-
-#profilePicture {
-    width: 70%;
+    text-align: center;      
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
 }
 
 
 #skillDiv {
     width: 100%;
     text-align: center;
+    background-color: cadetblue;
 }
+
