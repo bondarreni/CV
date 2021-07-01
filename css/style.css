@@ -1,1 +1,38 @@
 
+body {
+    background-color: #edebe2;
+    padding: 0;
+    margin: 0;
+}
+
+
+h1 {
+    color: #85D2D0;
+    font-family: 'Fuggles', cursive;
+    font-size: 60px;
+    font-size: 12vw;
+    margin: 10% auto 0 auto;
+}
+
+h2 {
+    color: #B9B7BD;
+    font-family: 'Kirang Haerang', cursive;
+    font-size: 40px;
+    font-size: 6vw;
+
+}
+
+#nameDiv {
+    margin: auto;
+    text-align: center;
+}
+
+#profilePicture {
+    width: 70%;
+}
+
+
+#skillDiv {
+    width: 100%;
+    text-align: center;
+}
