@@ -5,18 +5,19 @@ body {
     margin: 0;
     background-image: url("../profilepicture.png");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-attachment: fixed;
     background-position: center;
     width: 100vw;
 }
 
 
-h1 {
+.myName {
     color: #85D2D0;
     font-family: 'Fuggles', cursive;
     font-size: 100px;
     font-size: 20vw;
+    font-weight: bold;
 }
 
 
