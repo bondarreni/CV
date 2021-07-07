@@ -1,4 +1,18 @@
-jQuery(document).ready(function($) {
+
+function sendEmail() {
+  Email.send({
+    SecureToken : "6380a0c0-1043-4dab-af80-67a1220b907a",
+    To : 'bondarreni@gmail.com',
+    From : "bondarreni@gmail.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+  }).then(
+    message => alert("mail has been sent sucessfully")
+  );
+}
+
+
+/*jQuery(document).ready(function($) {
   "use strict";
 
   //Contact
@@ -116,3 +130,6 @@ jQuery(document).ready(function($) {
   });
 
 });
+
+*/
+
