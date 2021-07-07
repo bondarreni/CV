@@ -3,7 +3,7 @@ function sendEmail() {
   Email.send({
     SecureToken : "1d564470-4f0c-46db-8b69-d46aaabe664c",
     To : 'bondarreni@gmail.com',
-    From : "bondarreni@gmail.com",
+    From : "virslike778@gmail.com",
     Subject : "This is the subject",
     Body : "And this is the body"
 }).then(
