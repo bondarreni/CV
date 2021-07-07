@@ -513,3 +513,12 @@ nav ul li a {
 #education #languages #skills {
   margin-top: 90px;
 }
+
+
+.footerIcon {
+  color: #999;
+  width: 25px; 
+  height: 25px; 
+  margin-left: 20px;
+  vertical-align: 0;
+}
