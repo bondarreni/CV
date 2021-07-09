@@ -1,15 +1,64 @@
 
-function sendEmail() {
-  Email.send({
-    SecureToken : "44e3a8c8-9a7b-4731-b8e4-ea1b746d5fd7",
-    To : 'bondarreni@gmail.com',
-    From : "virslike778@gmail.com",
-    Subject : "This is the subject",
-    Body : "And this is the body"
-}).then(
-  message => alert(message)
-);
+function sendEmail(params) {
+  var tempParams = {
+    from_name: document.getElementById("name").value,
+    from_email: document.getElementById("email").value,
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("message").value
+  }
+
+  if(formValidation(tempParams)) {
+    emailjs.send("contact_service", "template_m1g4iwp", tempParams)
+    .then(function(res) {
+      console.log("Email sent");
+    });
+  }
+  else {
+    console.log("Can't send email");
+  }
+
 }
+
+//https://www.emailjs.com
+
+
+function formValidation(params) {
+
+  let ok = true;
+
+  // Name
+  if(params["from_name"] === "") {
+    console.log("No name");
+    ok = false;
+  }
+
+  // Email
+  if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(params["from_email"]))
+  {
+    console.log("Wrong email")
+    ok = false;
+  }
+
+
+  // Subject
+  if(params["subject"] === "") {
+    console.log("No subject");
+    ok = false;
+  }
+
+  // Message
+  if(params["message"] === "") {
+    console.log("No message");
+    ok = false;
+  }
+
+  //return ok;
+  return false;
+}
+
+
+
+
 
 
 /*jQuery(document).ready(function($) {
