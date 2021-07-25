@@ -52,7 +52,7 @@ a:hover {
 }
 
 a:hover, a:focus {
-  color: #b8a07e;
+  color: #85D2D0;
   text-decoration: underline;
 }
 
@@ -136,10 +136,17 @@ p {
   text-transform: uppercase;
 }
 
-.form-control:focus {
-  box-shadow: none;
-  outline: 0 none;
+.form-control-error {
+  border: 1px solid red;
+  color: red;
+  background-color: rgb(247, 200, 200);
+  
 }
+
+.form-control-error::placeholder {
+  color: red;
+}
+
 
 .paddsection {
   padding-top: 90px;
@@ -253,7 +260,6 @@ nav ul li a {
   font-size: 20vw;
   font-weight: 700;
   margin-bottom: 10px;
-  /*color: #4b99c7;*/
   color: #85D2D0;
   font-family: 'Fuggles', cursive;
   text-align: center;
@@ -281,7 +287,7 @@ nav ul li a {
 }
 
 /*-----------------------------------------------------------------------------------*/
-/*  Aout-us
+/*  Aout-me
 /*-----------------------------------------------------------------------------------*/
 
 #about {
@@ -316,58 +322,6 @@ nav ul li a {
   margin-bottom: 0;
   text-align: left;
 }
-
-/*-----------------------------------------------------------------------------------*/
-/*   Services
-/*-----------------------------------------------------------------------------------*/
-
-#services {
-  background: #f7f7f7;
-  position: relative;
-  padding-bottom: 80px;
-}
-
-.owl-item {
-  float: left;
-}
-
-/* skills */
-
-.skill-block {
-  margin-bottom: 20px;
-}
-
-.skill-block span {
-  margin: 0 0 20px 0;
-  font-size: 18px;
-  color: #464646;
-  font-weight: 500;
-  text-transform: uppercase;
-  display: inline;
-}
-
-.highlighted {
-  margin: 0 0 20px 0;
-  font-size: 18px;
-  color: #464646;
-  font-weight: 500;
-  text-transform: uppercase;
-  display: inline;
-}
-
-
-.services-block .separator {
-  margin: 0;
-  font-size: 13px;
-  line-height: 22px;
-}
-
-.services-block i {
-  font-size: 44px;
-  color: #b8a07e;
-  line-height: 44px;
-}
-
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -452,28 +406,8 @@ nav ul li a {
   margin-right: 10px;
 }
 
-#footer .socials-media ul li a {
-  font-size: 24px;
-  color: #999;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  background: transparent;
-  text-transform: uppercase;
-  -moz-transition: all 0.5s ease-in-out 0s;
-  -ms-transition: all 0.5s ease-in-out 0s;
-  -o-transition: all 0.5s ease-in-out 0s;
-  -webkit-transition: all 0.5s ease-in-out 0s;
-  transition: all 0.5s ease-in-out 0s;
-}
 
-#footer .socials-media ul li a:hover {
-  color: #b8a07e;
-  -moz-transition: all 0.5s ease-in-out 0s;
-  -ms-transition: all 0.5s ease-in-out 0s;
-  -o-transition: all 0.5s ease-in-out 0s;
-  -webkit-transition: all 0.5s ease-in-out 0s;
-  transition: all 0.5s ease-in-out 0s;
-}
+
 
 #footer p {
   font-size: 12px;

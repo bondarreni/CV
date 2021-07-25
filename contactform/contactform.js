@@ -1,5 +1,6 @@
 
 function sendEmail(params) {
+  sendButtonClicked = true;
   var tempParams = {
     from_name: document.getElementById("name").value,
     from_email: document.getElementById("email").value,
@@ -21,6 +22,11 @@ function sendEmail(params) {
 
 //https://www.emailjs.com
 
+const nameField = document.querySelector('#name')
+const emailField = document.querySelector('#email')
+const subjectField = document.querySelector('#subject')
+const msgField = document.querySelector('#message')
+
 
 function formValidation(params) {
 
@@ -30,6 +36,8 @@ function formValidation(params) {
   if(params["from_name"] === "") {
     console.log("No name");
     ok = false;
+    nameField.placeholder = "Enter your name"
+    nameField.classList.add("form-control-error")
   }
 
   // Email
@@ -37,6 +45,8 @@ function formValidation(params) {
   {
     console.log("Wrong email")
     ok = false;
+    emailField.placeholder = "Enter a valid email address"
+    emailField.classList.add("form-control-error")
   }
 
 
@@ -44,141 +54,59 @@ function formValidation(params) {
   if(params["subject"] === "") {
     console.log("No subject");
     ok = false;
+    subjectField.placeholder = "Enter a subject"
+    subjectField.classList.add("form-control-error")
   }
 
   // Message
   if(params["message"] === "") {
     console.log("No message");
     ok = false;
+    msgField.placeholder = "Enter your message"
+    msgField.classList.add("form-control-error")
   }
 
-  //return ok;
-  return false;
+  return ok;
+  //return false;
 }
 
 
-
-
-
-
-/*jQuery(document).ready(function($) {
-  "use strict";
-
-  //Contact
-  $('form.contactForm').submit(function() {
-    var f = $(this).find('.form-group'),
-      ferror = false,
-      emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-
-    f.children('input').each(function() { // run all inputs
-
-      var i = $(this); // current input
-      var rule = i.attr('data-rule');
-
-      if (rule !== undefined) {
-        var ierror = false; // error flag for current input
-        var pos = rule.indexOf(':', 0);
-        if (pos >= 0) {
-          var exp = rule.substr(pos + 1, rule.length);
-          rule = rule.substr(0, pos);
-        } else {
-          rule = rule.substr(pos + 1, rule.length);
-        }
-
-        switch (rule) {
-          case 'required':
-            if (i.val() === '') {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'minlen':
-            if (i.val().length < parseInt(exp)) {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'email':
-            if (!emailExp.test(i.val())) {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'checked':
-            if (! i.is(':checked')) {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'regexp':
-            exp = new RegExp(exp);
-            if (!exp.test(i.val())) {
-              ferror = ierror = true;
-            }
-            break;
-        }
-        i.next('.validation').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-      }
-    });
-    f.children('textarea').each(function() { // run all inputs
-
-      var i = $(this); // current input
-      var rule = i.attr('data-rule');
-
-      if (rule !== undefined) {
-        var ierror = false; // error flag for current input
-        var pos = rule.indexOf(':', 0);
-        if (pos >= 0) {
-          var exp = rule.substr(pos + 1, rule.length);
-          rule = rule.substr(0, pos);
-        } else {
-          rule = rule.substr(pos + 1, rule.length);
-        }
-
-        switch (rule) {
-          case 'required':
-            if (i.val() === '') {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'minlen':
-            if (i.val().length < parseInt(exp)) {
-              ferror = ierror = true;
-            }
-            break;
-        }
-        i.next('.validation').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-      }
-    });
-    if (ferror) return false;
-    else var str = $(this).serialize();
-    var action = $(this).attr('action');
-    if( ! action ) {
-      action = 'contactform/contactform.php';
-    }
-    $.ajax({
-      type: "POST",
-      url: action,
-      data: str,
-      success: function(msg) {
-        // alert(msg);
-        if (msg == 'OK') {
-          $("#sendmessage").addClass("show");
-          $("#errormessage").removeClass("show");
-          $('.contactForm').find("input, textarea").val("");
-        } else {
-          $("#sendmessage").removeClass("show");
-          $("#errormessage").addClass("show");
-          $('#errormessage').html(msg);
-        }
-
-      }
-    });
-    return false;
-  });
-
+document.querySelectorAll('input').forEach(item => {
+  item.addEventListener('focus', inputFocus);
 });
+document.querySelectorAll('input').forEach(item => {
+  item.addEventListener('blur', inputBlur);
+});
+document.querySelector('textarea').addEventListener('focus', inputFocus);
+document.querySelector('textarea').addEventListener('blur', inputBlur);
 
-*/
+
+
+function inputFocus(e) {
+  e.target.classList.remove('form-control-error');
+}
+
+function inputBlur(e) {
+  if(e.target === nameField) {
+    if (e.target.value === "") {
+      e.target.classList.add('form-control-error');
+    }
+  }
+  else if(e.target === emailField) {
+    if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(e.target.value)) {
+      e.target.classList.add('form-control-error');
+    }
+  }
+  else if(e.target === subjectField) {
+    if (e.target.value === "") {
+      e.target.classList.add('form-control-error');
+    }
+  }
+  else if(e.target === msgField) {
+    if (e.target.value === "") {
+      e.target.classList.add('form-control-error');
+    }
+  }
+}
+
 
