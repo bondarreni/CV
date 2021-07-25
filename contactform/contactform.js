@@ -12,6 +12,7 @@ function sendEmail(params) {
     emailjs.send("contact_service", "template_m1g4iwp", tempParams)
     .then(function(res) {
       console.log("Email sent");
+      document.querySelector('#sendmessage').style.display = "block";
     });
   }
   else {
